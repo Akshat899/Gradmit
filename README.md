@@ -3,7 +3,7 @@
 Gradmit is a modern, responsive, and student-focused website built for an education and career consultancy firm based in India. The platform is designed to offer students and parents easy access to trusted information and expert guidance on college admissions, career counselling, and program recommendations across India’s top institutions.
 
 ## 🌐 Live Website
-[Visit Gradmit](https://gradmit.co) *(replace with your custom domain if not live yet)*
+[Visit Gradmit](https://gradmit.co) 
 
 ---
 
