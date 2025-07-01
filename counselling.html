@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1-on-1 Counselling | Gradmit</title>
+  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    .hero {
+      background: linear-gradient(to right, #012970, #0058a3);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .counselling-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .left-img, .right-form {
+      flex: 1 1 400px;
+      padding: 20px;
+    }
+    .left-img img {
+      width: 100%;
+      border-radius: 12px;
+    }
+    .form-field {
+      margin-bottom: 20px;
+    }
+    .form-field label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .form-field input,
+    .form-field select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    .pay-btn {
+      background: #ffb400;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1rem;
+      color: #012970;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+    iframe {
+      margin-top: 30px;
+      width: 100%;
+      min-height: 600px;
+      border: none;
+      border-radius: 12px;
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+    <header class="header">
+    <div class="container">
+      <div class="logo">
+        <!-- Replace 'logo.png' with the path to your actual logo -->
+        <a href="/index.html"><img src="/res/GradMit White Watermark.png" alt="Gradmit logo"/></a>
+      </div>
+      <div class="logo-mobile">
+        <a href="/index.html"><img src="/res/GradMit White full.png" alt="Gradmit logo"/></a>
+      </div>
+      <nav class="nav" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/programs.html">Programs</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+          <li><a href="/counselling.html">1-on-1 Counselling</a></li>
+        </ul>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/gradmit.ed/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com/@Gradmit"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/company/gradmitedu/"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/gradmit.ed"><i class="fab fa-instagram"></i></a>
+        </div>
+      </nav>
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+  <section class="hero">
+    <h1>Book a 1-on-1 Counselling Session</h1>
+    <p>Get personal guidance from India's trusted career advisors</p>
+  </section>
+
+  <section class="counselling-container">
+    <div class="left-img">
+      <img src="/res/GradMit colour full.png" alt="Counselling Image">
+    </div>
+    <div class="right-form">
+      <form id="counselling-form" action="https://formspree.io/f/mwpbboll" method="POST">
+        <div class="form-field">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="form-field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="form-field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" pattern="[0-9]{10,15}" required />
+        </div>
+        <div class="form-field">
+          <label for="course">Select Course</label>
+          <select id="course">
+            <option>UG Admissions</option>
+            <option>PG Admissions</option>
+            <option>Study Abroad</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="date">Select Date</label>
+          <input type="date" id="date" required />
+        </div>
+        <div class="form-field">
+          <label for="time">Select Time Slot</label>
+          <select id="time">
+            <option>10:00 AM</option>
+            <option>11:00 AM</option>
+            <option>12:00 Noon</option>
+            <option>2:00 PM</option>
+            <option>3:00 PM</option>
+            <option>4:00 PM</option>
+            <option>5:00 PM</option>
+          </select>
+        </div>
+        <button type="button" class="pay-btn" onclick="payNow()">Proceed to Payment</button>
+      </form>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Left Column -->
+      <div class="footer-left">
+        <img src="/res/GradMit White full.png" alt="GRADMIT Logo" class="footer-logo" />
+        <p class="footer-about">
+          At GRADMIT, we empower aspirants by connecting them with top educational institutions
+          and programs tailored to their future. Our mission is to make career success accessible and achievable for all.
+        </p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/gradmit.ed/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/company/gradmitedu/"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/gradmit.ed"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@Gradmit"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+  
+      <!-- Right Column -->
+      <div class="footer-right">
+        <div class="footer-links-group">
+          <h4>Top Universities</h4>
+          <ul>
+            <li><a href="https://amityonline.com/about-us">Amity University Online</a></li>
+            <li><a href="https://www.srmist.edu.in/program-finder/">SRM University</a></li>
+            <li><a href="https://www.upes.ac.in/">UPES</a></li>
+            <li><a href="https://www.nmims.edu/about">NMIMS</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Terms</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+             
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <!-- Bottom -->
+    <div class="footer-bottom">
+      &copy; 2025 Gradmit Education. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function payNow() {
+      const options = {
+        key: "rzp_live_HrY9RUmBNPaUR9", // Replace with your Razorpay API Key
+        amount: 29900, // 299.00 INR in paise
+        currency: "INR",
+        name: "Gradmit",
+        description: "1-on-1 Counselling Session",
+        handler: function (response) {
+          alert("Payment successful! ID: " + response.razorpay_payment_id);
+        },
+        prefill: {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          contact: document.getElementById('phone').value
+        },
+        theme: {
+          color: "#0058a3"
+        }
+      };
+      const rzp = new Razorpay(options);
+      rzp.open();
+    }
+  </script>
+</body>
+</html>
